@@ -5,48 +5,35 @@
 @endsection
 
 @section('content')
-<div class="login__content">
-    <div class="login-form__heading">
-        <h2>ログイン</h2>
+<div class="content">
+    <div class="main_header">
+        <h2>Login</h2>
     </div>
-    <form class="form" action="/login" method="post">
-        @csrf
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">メールアドレス</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="email" name="email" value="{{ old('email') }}" />
+    <div class="main_content">
+        <form class="form" action="/login" method="post">
+            @csrf
+
+            <div class="email">
+                <div class="email_content">
+                    <img class="email_img" src="https://img.icons8.com/ios-glyphs/30/new-post.png" alt="new-post" />
                 </div>
-                <div class="form__error">
-                    @error('email')
-                    {{ $message }}
-                    @enderror
+                <div class="email_text">
+                    <input type="email" name="email" placeholder="{{ old('email') . 'Email' }}">
                 </div>
             </div>
-        </div>
-        <div class="form__group">
-            <div class="form__group-title">
-                <span class="form__label--item">パスワード</span>
-            </div>
-            <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="password" name="password" />
+
+            <div class="password">
+                <div class="password_content">
+                    <img class="password_img" src="https://img.icons8.com/material-rounded/24/lock--v1.png" alt="lock--v1" />
                 </div>
-                <div class="form__error">
-                    @error('password')
-                    {{ $message }}
-                    @enderror
+                <div class="password_text">
+                    <input type="text" name="password" placeholder="Password">
                 </div>
             </div>
-        </div>
-        <div class="form__button">
-            <button class="form__button-submit" type="submit">ログイン</button>
-        </div>
-    </form>
-    <div class="register__link">
-        <a class="register__button-submit" href="/register">会員登録の方はこちら</a>
+            <div class="btn">
+                <button type="submit">ログイン</button>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

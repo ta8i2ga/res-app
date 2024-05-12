@@ -1,0 +1,31 @@
+.content {
+    width: 30vw;
+    height: 20vw;
+    text-align: center;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    padding-top: 20vh;
+}
+
+p {
+    font-weight: bold;
+    padding-top: 20%;
+    font-size: 1.5vw;
+}
+
+.content_btn {
+    background-color: rgb(65, 65, 255);
+    display: inline-block;
+    padding: 0.2vw 0.8vw;
+    margin-top: 11%;
+    border-radius: 0.3vw;
+}
+
+a {
+    color: white;
+    font-size: 1vw;
+    line-height: 1.5vw;
+}

@@ -1,69 +1,113 @@
-.attendance__alert--success {
-    padding: 10px 30px;
-    border-color: #badbcc;
-    background-color: #d1e7dd;
-    color: #0f5132;
-}
-
-.attendance__alert--danger {
-    padding: 10px 0;
-    border-color: #f5c2c7;
-    background-color: #f8d7da;
-    color: #842029;
-}
-
-.attendance__alert--danger ul {
-    margin: 0;
-}
-
-.attendance__panel {
-    margin: 0 auto;
-    width: 70%;
-}
-
-.attendance__button {
+body {
     width: 100%;
-    text-align: center;
+    height: 100%;
 }
 
-.attendance__button-submit {
-    padding: 5px;
-    width: 30%;
-    height: 50px;
-    border: none;
+main {
+    width: 100%;
+    height: 100%;
+}
+
+.search {
+    width: 40vw;
+    height: 40px;
+    display: flex;
+    background-color: white;
+    margin-left: 50%;
+    margin-top: 5vh;
+    align-items: center;
     border-radius: 3px;
-    background: #000;
-    color: #fff;
-    cursor: pointer;
+    box-shadow: 2px 2px 5px gray;
 }
 
-.attendance__content {
-    margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
+select {
+    border: none;
+    outline: none;
+    border-right: 1px solid gray;
+    margin-left: 10%;
 }
 
-.attendance-table {
-    margin: 30px auto;
-    width: 70%;
-    text-align: center;
+.search_shop {
+    display: flex;
+    margin-left: 10px;
 }
 
-.attendance-table__inner {
+input {
+    border: none;
+}
+
+.article {
     width: 100%;
+    height: 100px;
+    padding: 50px 5vw;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.attendance-table__row {
-    border-bottom: 1px solid #ddd;
+.section {
+    width: 20vw;
+    height: 20vw;
+    background-color: white;
+    margin: 10px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px gray;
 }
 
-.attendance-table__header {
-    padding: 12px;
-    width: 20%;
-    font-weight: bold;
+.img_section {
+    width: 100%;
+    height: 50%;
 }
 
-.attendance-table__item {
-    padding: 12px;
-    width: 20%;
+.shop_img {
+    width: 20vw;
+    height: 10vw;
+    border-radius: 6px 6px 0 0;
 }
+
+.shop_section {
+    width: auto;
+    height: 50%;
+    margin: 1vw;
+}
+
+.shop_section_header h2 {
+    font-size: 1.2vw;
+}
+
+.tag {
+    display: flex;
+    font-size: 1vw;
+}
+
+.section_footer {
+    width: 100%;
+    height: auto;
+    margin-top: 1vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_btn {
+    border: 1px solid rgb(65, 65, 255);
+    background-color: rgb(65, 65, 255);
+    padding: 0.5vw 1vw;
+    border-radius: 6px;
+}
+
+.footer_btn a {
+    display: block;
+    color: white;
+    font-size: 1vw;
+    line-height: 2vw;
+}
+
+.favorite_btn button {
+    border: none;
+    background-color: white;
+}
+
+.favorite_btn img {
+    width: 3vw;
+    height: 3vw;
+}
+
