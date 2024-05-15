@@ -62,7 +62,10 @@
             </div>
             <div class="section_footer">
                 <div class="footer_btn">
-                    <a href="">詳しくみる</a>
+                    <form action="{{ 'detail' }}" method="GET">
+                        <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+                        <button type="submit">詳しくみる</button>
+                    </form>
                 </div>
                 <div class="favorite_btn">
                     <form action="{{ route('favorites.add') }}" method="post">

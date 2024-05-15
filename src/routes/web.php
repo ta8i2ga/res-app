@@ -19,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/genre-search', [AuthController::class, 'genreSearch'])->name('genre.search');
     Route::get('/shop-search', [AuthController::class, 'shopSearch'])->name('shop.search');
     Route::post('/favorites/add', [AuthController::class, 'addFavorites'])->name('favorites.add');
+    Route::get('/detail', [AuthController::class, 'showShopDetail'])->name('shop.detail');
+    Route::post('/detail', [AuthController::class, 'store'])->name('reservations.store');
 });
 Route::get('/thanks', [AuthController::class,'thanks']);
 
