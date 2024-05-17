@@ -9,9 +9,9 @@
     <div class="content_title">
         <h3>予約状況</h3>
     </div>
+    @if($reservations->isNotEmpty())
+    @foreach($reservations as $loopkey => $reservation)
     <div class="content_box">
-        @if($reservations->isNotEmpty())
-        @foreach($reservations as $loopkey => $reservation)
         <div class="box_nav">
             <div class="box_nav-head">
                 <div class="time_icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0,0,256,256">
@@ -58,8 +58,8 @@
                     <td>{{ $reservation->number }}人</td>
                 </tr>
             </table>
-            @endforeach
         </div>
+        @endforeach
         @endif
     </div>
 </div>

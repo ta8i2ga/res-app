@@ -10,6 +10,7 @@ use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Reservation;
 use App\Models\User;
+use App\Http\Requests\ReservationRequest;
 
 class AuthController extends Controller
 {
@@ -126,20 +127,23 @@ class AuthController extends Controller
         return view('detail', compact('shop', 'area', 'genre', 'reservations'));
     }
 
-    public function store(Request $request)
+    public function store(ReservationRequest $request)
     {
         $userId = auth()->id();
         $shopId = $request->input('shop_id');
 
-        $reservation = new Reservation();
-        $reservation->user_id = $userId;
-        $reservation->shop_id = $shopId;
-        $reservation->date = $request->input('date');
-        $reservation->time = $request->input('time');
-        $reservation->number = $request->input('number');
-        $reservation->save();
-
-        return view('done');
+        try {
+            $reservation = new Reservation();
+            $reservation->user_id = $userId;
+            $reservation->shop_id = $shopId;
+            $reservation->date = $request->input('date');
+            $reservation->time = $request->input('time');
+            $reservation->number = $request->input('number');
+            $reservation->save();
+            return view('done');
+        } catch(\Exception $e) {
+            return back();
+        }
     }
 
     public function getMyPage()
