@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/favorites/add', [AuthController::class, 'addFavorites'])->name('favorites.add');
     Route::get('/detail', [AuthController::class, 'showShopDetail'])->name('shop.detail');
     Route::post('/detail', [AuthController::class, 'store'])->name('reservations.store');
+    Route::get('/mypage', [AuthController::class, 'getMyPage'])->name('mypage');
+    Route::delete('/reservations/{id}', [AuthController::class, 'cancelReservation'])->name('reservation.cancel');
 });
 Route::get('/thanks', [AuthController::class,'thanks']);
 

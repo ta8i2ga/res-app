@@ -74,7 +74,7 @@
                 <table class="confirm_table">
                     <tr class="confirm_shop">
                         <th>Shop</th>
-                        <td>{{ $shop->shop_name }}</td>
+                        <td>{{ $reservation->shop->shop_name }}</td>
                     </tr>
                     <tr class="confirm_date">
                         <th>Date</th>
@@ -88,14 +88,14 @@
                         <th>Number</th>
                         <td>{{ $reservation->number }}人</td>
                     </tr>
-                    </table>
-                    @endforeach
+                </table>
+                @endforeach
             </div>
     </div>
+    @endif
     <div class="reserve_btn">
         <button type="submit">予約する</button>
     </div>
-    @endif
     </form>
 </div>
 @endsection

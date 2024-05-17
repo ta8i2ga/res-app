@@ -1,0 +1,183 @@
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.reserve_content {
+    width: 40%;
+    height: auto;
+    padding: 13vw 5vw;
+}
+
+.content_title {
+    width: 100%;
+}
+.content_title h3 {
+    font-size: 1.8vw;
+}
+
+.content_box {
+    margin-top: 2vw;
+    width: 100%;
+    height: 17vw;
+    background-color: rgb(65, 65, 255);
+    border-radius: 0.3vw;
+    box-shadow: 0.1vw 0.1vw 0.3vw gray;
+}
+
+.box_nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5%;
+}
+
+.box_nav-head {
+    display: flex;
+    width: 100%;
+}
+
+.reserve_number {
+    color: white;
+    padding-left: 5%;
+    font-size: 1.2vw;
+}
+
+.box_nav .time_icon svg {
+    width: 2vw;
+    height: 2vw;
+}
+
+.box_nav .cancel_btn svg {
+    width: 1.8vw;
+    height: 1.8vw;
+}
+
+.cancel_btn button {
+    background-color: rgb(65, 65, 255);
+    border: none;
+}
+.reserve_table {
+    width: 100%;
+    height: auto;
+    color: white;
+    padding-left: 7%;
+    text-align: left;
+}
+
+table {
+    font-size: 1vw;
+}
+
+table th ,table td {
+    width: 20%;
+    padding-top: 5%;
+}
+
+table td {
+    width: 70%;
+    padding-left: 5%;
+}
+
+/*right-section*/
+
+.favorite_shops {
+    width: 60%;
+    height: auto;
+    padding: 8vw 5vw;
+}
+
+.user_name {
+    width: 100%;
+}
+
+.user_name h2 {
+    font-size: 2.5vw;
+}
+
+
+
+.favorite_title {
+    width: 100%;
+    padding-top: 2.5%;
+}
+
+.favorite_title h3 {
+    font-size: 1.8vw;
+}
+
+.shop {
+    width: 100%;
+    height: auto;padding-top: 1.7vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section {
+    width: 40%;
+    height: 19vw;
+    margin-right: 8%;
+    margin-bottom: 8%;
+    background-color: white;
+    border-radius: 0.3vw;
+    box-shadow: 0.1vw 0.1vw 0.3vw gray;
+}
+
+.img_section {
+    width: 100%;
+    height: auto;
+}
+
+.img_section img {
+    width: 100%;
+    height: 10vw;border-radius: 0.3vw 0.3vw 0 0;
+}
+
+.shop_section {
+    width: 100%;
+    padding: 5%;
+}
+
+.shop_section_header h2 {
+    font-size: 1.2vw;
+}
+
+.tag {
+    display: flex;
+    font-size: 0.8vw;
+}
+
+.section_footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 5%;
+}
+
+.footer_btn button , .favorite_btn button{
+    border: none;
+}
+
+
+.footer_btn {
+    width: 6vw;
+    padding:  0.5vw 1vw;
+    background-color: rgb(65, 65, 255);
+    border-radius: 0.3vw;
+}
+
+.footer_btn button {
+    background-color: rgb(65, 65, 255);
+    color: white;
+    font-size: 1vw;
+}
+
+.favorite_btn button {
+    background-color: white;
+}
+
+.favorite_btn button img {
+    width: 2.5vw;
+    height: 2.5vw;
+}

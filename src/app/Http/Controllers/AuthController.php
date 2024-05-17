@@ -141,4 +141,23 @@ class AuthController extends Controller
 
         return view('done');
     }
+
+    public function getMyPage()
+    {
+        $userId = auth()->id(); // ログインユーザーのIDを取得
+        $userFavorites = Favorite::where('user_id', $userId)->pluck('shop_id')->toArray();
+        $favoriteShops = Shop::whereIn('id', $userFavorites)->get();
+        $reservations = Reservation::where('user_id', $userId)->with('shop')->get();
+
+        return view('mypage', compact('favoriteShops', 'reservations'));
+    }
+
+    public function cancelReservation($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+
+        $reservation->delete();
+
+        return redirect('mypage');
+    }
 }

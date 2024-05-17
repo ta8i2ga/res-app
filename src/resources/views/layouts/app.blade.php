@@ -14,7 +14,7 @@
 <body>
     <header>
         <input type="checkbox" id="check">
-        <label for="check" id="rese"><img width="20" height="25" src="https://img.icons8.com/color/48/000000/fries-menu.png" alt="fries-menu" />
+        <label for="check" id="rese"><img  src="https://img.icons8.com/color/48/000000/fries-menu.png" alt="fries-menu" />
             <label for="check" id="text">Rese</label>
         </label>
         <label for="check" id="batu">✖</label>
