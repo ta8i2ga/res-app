@@ -66,7 +66,7 @@
 
 <div class="favorite_shops">
     <div class="user_name">
-        <h2>{{ auth()->id() }}さん</h2>
+        <h2>{{ auth()->user()->name }}さん</h2>
     </div>
     <div class="favorite_title">
         <h3>お気に入り店舗</h3>

@@ -116,8 +116,8 @@ class AuthController extends Controller
         $userId = Auth::id();
         $reservations = Reservation::where('shop_id', $shopId)
                     ->where('user_id', $userId)
-                    ->orderBy('date', 'desc')
-                    ->orderBy('time', 'desc')
+                    ->orderBy('date', 'asc')
+                    ->orderBy('time', 'asc')
                     ->limit(2)
                     ->get();
 
@@ -151,7 +151,10 @@ class AuthController extends Controller
         $userId = auth()->id(); // ログインユーザーのIDを取得
         $userFavorites = Favorite::where('user_id', $userId)->pluck('shop_id')->toArray();
         $favoriteShops = Shop::whereIn('id', $userFavorites)->get();
-        $reservations = Reservation::where('user_id', $userId)->with('shop')->get();
+        $reservations = Reservation::where('user_id', auth()->id())
+            ->orderBy('date', 'asc')
+            ->orderBy('time', 'asc')
+            ->get();
 
         return view('mypage', compact('favoriteShops', 'reservations'));
     }
