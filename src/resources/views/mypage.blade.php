@@ -24,6 +24,13 @@
                 </div>
                 <div class="reserve_number">予約{{ $loopkey + 1 }}</div>
             </div>
+            <!--追加実装予約編集-->
+            <div class="edit_btn">
+                <a href="{{ route('reservation.edit', $reservation->id) }}">
+                    <button type="button">編集</button>
+                </a>
+            </div>
+
             <div class="cancel_btn">
                 <form action="{{ route('reservation.cancel', $reservation->id) }}" method="POST">
                     @csrf
@@ -37,6 +44,7 @@
                             </g>
                         </svg>
                     </button>
+                </form>
             </div>
         </div>
         <div class="reserve_table">

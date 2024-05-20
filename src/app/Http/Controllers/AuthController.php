@@ -115,11 +115,11 @@ class AuthController extends Controller
         $shop = Shop::find($shop_id);
         $userId = Auth::id();
         $reservations = Reservation::where('shop_id', $shopId)
-                    ->where('user_id', $userId)
-                    ->orderBy('date', 'asc')
-                    ->orderBy('time', 'asc')
-                    ->limit(2)
-                    ->get();
+            ->where('user_id', $userId)
+            ->orderBy('date', 'asc')
+            ->orderBy('time', 'asc')
+            ->limit(2)
+            ->get();
 
         $area = $shop->area;
         $genre = $shop->genre;
@@ -141,7 +141,7 @@ class AuthController extends Controller
             $reservation->number = $request->input('number');
             $reservation->save();
             return view('done');
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return back();
         }
     }
@@ -159,6 +159,8 @@ class AuthController extends Controller
         return view('mypage', compact('favoriteShops', 'reservations'));
     }
 
+    //追加実装予約編集↓
+
     public function cancelReservation($id)
     {
         $reservation = Reservation::findOrFail($id);
@@ -166,5 +168,22 @@ class AuthController extends Controller
         $reservation->delete();
 
         return redirect('mypage');
+    }
+
+    public function edit($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        return view('reservation.edit', compact('reservation'));
+    }
+
+    public function update(ReservationRequest $request, $id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        $reservation->date = $request->input('date');
+        $reservation->time = $request->input('time');
+        $reservation->number = $request->input('number');
+        $reservation->save();
+
+        return redirect()->route('mypage');
     }
 }

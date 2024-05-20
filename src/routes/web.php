@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/detail', [AuthController::class, 'store'])->name('reservations.store');
     Route::get('/mypage', [AuthController::class, 'getMyPage'])->name('mypage');
     Route::delete('/reservations/{id}', [AuthController::class, 'cancelReservation'])->name('reservation.cancel');
+    Route::get('/reservation/edit/{id}', [AuthController::class, 'edit'])->name('reservation.edit');
+    Route::put('/reservation/update/{id}', [AuthController::class, 'update'])->name('reservation.update');
 });
 Route::get('/thanks', [AuthController::class,'thanks']);
 
