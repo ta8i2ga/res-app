@@ -200,3 +200,15 @@ table td {
     color: white;
     font-size: 1vw;
 }
+
+.review_btn a button {
+    margin-right: 1vw;
+    width: 4vw;
+    height: 2vw;
+    background-color: rgb(65, 65, 255);
+    border: none;
+    border: 0.1vw solid white;
+    border-radius: 0.3vw;
+    color: white;
+    font-size: 1vw;
+}

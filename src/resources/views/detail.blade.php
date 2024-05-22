@@ -97,5 +97,4 @@
         <button type="submit">予約する</button>
     </div>
     </form>
-</div>
-@endsection
+    @endsection

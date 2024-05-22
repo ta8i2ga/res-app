@@ -25,11 +25,20 @@
                 <div class="reserve_number">予約{{ $loopkey + 1 }}</div>
             </div>
             <!--追加実装予約編集-->
+            @if(now()->isBefore($reservation->date) || (now()->isSameDay($reservation->date) && now()->isBefore($reservation->time)))
             <div class="edit_btn">
                 <a href="{{ route('reservation.edit', $reservation->id) }}">
                     <button type="button">編集</button>
                 </a>
             </div>
+            @endif
+
+            <!--追加実装評価とコメントボタンを追加-->
+            @if(now()->isAfter($reservation->date) || (now()->isSameDay($reservation->date) && now()->isAfter($reservation->time)))
+            <div class="review_btn">
+                <a href="{{ route('review.create', [ 'reservation' => $reservation->id]) }}" class="btn-primary"><button type="button">レビュー</button></a>
+            </div>
+            @endif
 
             <div class="cancel_btn">
                 <form action="{{ route('reservation.cancel', $reservation->id) }}" method="POST">

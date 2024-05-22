@@ -1,0 +1,81 @@
+.review_form {
+    width: 100%;
+    height: 100%;
+    padding-top: 10vw;
+}
+
+.review_form h2 {
+    text-align: center;
+    font-size: 2vw;
+    margin-bottom: 5vw;
+}
+
+.review_form_main {
+    width: 30vw;
+    height: 20vw;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 0.3vw;
+}
+
+.content_title {
+    width: 100%;
+    height: 20%;
+    background-color: rgb(65, 65, 255);
+    color: white;
+    border-radius: 0.3vw 0.3vw 0 0;
+    padding: 2.5% 0;
+}
+
+.content_title h3 {
+    margin-left: 5%;
+    font-size: 1.5vw;
+}
+
+.form_content {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    font-size: 1.2vw;
+    padding: 1vw;
+    justify-content: space-between;
+}
+
+.form_content-left {
+    width: 50%;
+}
+
+.form_content-right {
+    width: 50%;
+}
+
+.rating select {
+    font-size: 2vw;
+    width: 20%;
+    margin-left: 5%;
+}
+
+.comment textarea {
+    width: 97%;
+    margin-top: 10%;
+    height: 80%;
+    font-size: 1vw;
+}
+
+.submit_btn {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: end;
+}
+
+.submit_btn button {
+    background-color: rgb(65, 65, 255);
+    color: white;
+    border: none;
+    width: 33%;
+    height: 70%;
+    font-size: 1.2vw;
+    border-radius: 0.3vw;
+    margin-right: 5%;
+}

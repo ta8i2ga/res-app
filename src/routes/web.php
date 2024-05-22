@@ -23,8 +23,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/detail', [AuthController::class, 'store'])->name('reservations.store');
     Route::get('/mypage', [AuthController::class, 'getMyPage'])->name('mypage');
     Route::delete('/reservations/{id}', [AuthController::class, 'cancelReservation'])->name('reservation.cancel');
+
+    //追加実装:予約編集機能
     Route::get('/reservation/edit/{id}', [AuthController::class, 'edit'])->name('reservation.edit');
     Route::put('/reservation/update/{id}', [AuthController::class, 'update'])->name('reservation.update');
+
+    //追加実装:評価コメント機能
+    Route::get('/reviews/{reservation}', [AuthController::class, 'reviewCreate'])->name('review.create');
+    Route::post('/reviews', [AuthController::class, 'reviewsStore'])->name('reviews.store');
 });
 Route::get('/thanks', [AuthController::class,'thanks']);
 

@@ -10,7 +10,9 @@ use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Reservation;
 use App\Models\User;
+use App\Models\Review;
 use App\Http\Requests\ReservationRequest;
+use App\Http\Requests\StoreReviewRequest;
 
 class AuthController extends Controller
 {
@@ -114,10 +116,11 @@ class AuthController extends Controller
 
         $shop = Shop::find($shop_id);
         $userId = Auth::id();
-        $reservations = Reservation::where('shop_id', $shopId)
-            ->where('user_id', $userId)
+        $reviewedReservationsIds = Review::pluck('reservation_id')->all();
+        $reservations = Reservation::where('user_id', auth()->id())
             ->orderBy('date', 'asc')
             ->orderBy('time', 'asc')
+            ->whereNotIn('id', $reviewedReservationsIds)
             ->limit(2)
             ->get();
 
@@ -151,15 +154,18 @@ class AuthController extends Controller
         $userId = auth()->id(); // ログインユーザーのIDを取得
         $userFavorites = Favorite::where('user_id', $userId)->pluck('shop_id')->toArray();
         $favoriteShops = Shop::whereIn('id', $userFavorites)->get();
+
+        $reviewedReservationsIds = Review::pluck('reservation_id')->all();
         $reservations = Reservation::where('user_id', auth()->id())
             ->orderBy('date', 'asc')
             ->orderBy('time', 'asc')
+            ->whereNotIn('id', $reviewedReservationsIds)
             ->get();
 
         return view('mypage', compact('favoriteShops', 'reservations'));
     }
 
-    //追加実装予約編集↓
+    //追加実装予約編集
 
     public function cancelReservation($id)
     {
@@ -184,6 +190,28 @@ class AuthController extends Controller
         $reservation->number = $request->input('number');
         $reservation->save();
 
+        return redirect()->route('mypage');
+    }
+
+    //追加実装評価コメント機能
+    public function reviewCreate(Shop $shop, Request $request)
+    {
+        $reservation = Reservation::find($request->reservation);
+
+        $shop = $reservation->shop;
+
+        return view('review', compact('shop', 'reservation'));
+    }
+
+    public function reviewsStore(StoreReviewRequest $request)
+    {
+        Review::create([
+            'shop_id' => $request->shop_id,
+            'user_id' => Auth::id(),
+            'reservation_id' => $request->reservation_id,
+            'rating' => $request->rating,
+            'comment' => $request->comment,
+        ]);
         return redirect()->route('mypage');
     }
 }
