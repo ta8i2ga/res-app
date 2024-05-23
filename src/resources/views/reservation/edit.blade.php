@@ -20,7 +20,7 @@
             <div class="reserve_time">
                 <select name="time" id="time">
                     <?php
-                    $start = 17;
+                    $start = 10;
                     $end = 22;
                     for ($hour = $start; $hour < $end; $hour++) {
                         for ($minutes = 0; $minutes < 60; $minutes += 30) {
@@ -48,4 +48,13 @@
         </form>
     </div>
 </div>
+@if ($errors->any())
+    <div class="error_messages">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 @endsection

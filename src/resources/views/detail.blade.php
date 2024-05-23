@@ -37,6 +37,15 @@
         <div class="title">
             <h2>予約</h2>
         </div>
+        @if ($errors->any())
+        <div class="error_messages">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <form action="/detail" method="post">
             @csrf
             <input type="hidden" name="shop_id" value="{{ $shop->id }}">
@@ -45,8 +54,9 @@
             </div>
             <div class="reserve_time">
                 <select name="time" id="time">
+                    <option value="" disabled selected>時：分</option>
                     <?php
-                    $start = 17;
+                    $start = 10;
                     $end = 22;
                     for ($hour = $start; $hour < $end; $hour++) {
                         for ($minutes = 0; $minutes < 60; $minutes += 30) {
@@ -59,6 +69,7 @@
             </div>
             <div class=" reserve_number">
                 <select name="number" id="number">
+                    <option value="" disabled selected>人数</option>
                     <?php
                     $start = 1;
                     $end = 10;
@@ -96,5 +107,6 @@
     <div class="reserve_btn">
         <button type="submit">予約する</button>
     </div>
+
     </form>
     @endsection

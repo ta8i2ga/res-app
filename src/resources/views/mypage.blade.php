@@ -31,10 +31,9 @@
                     <button type="button">編集</button>
                 </a>
             </div>
-            @endif
 
             <!--追加実装評価とコメントボタンを追加-->
-            @if(now()->isAfter($reservation->date) || (now()->isSameDay($reservation->date) && now()->isAfter($reservation->time)))
+            @elseif(now()->isAfter($reservation->date) || (now()->isSameDay($reservation->date) && now()->isAfter($reservation->time)))
             <div class="review_btn">
                 <a href="{{ route('review.create', [ 'reservation' => $reservation->id]) }}" class="btn-primary"><button type="button">レビュー</button></a>
             </div>

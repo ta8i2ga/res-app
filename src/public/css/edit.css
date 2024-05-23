@@ -97,3 +97,11 @@ form input , form select{
     pointer-events: none;
     /* クリックを無効化 */
 }
+
+.error_messages {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1vw;
+}

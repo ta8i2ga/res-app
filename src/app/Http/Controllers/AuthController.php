@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\Review;
 use App\Http\Requests\ReservationRequest;
 use App\Http\Requests\StoreReviewRequest;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -116,12 +117,16 @@ class AuthController extends Controller
 
         $shop = Shop::find($shop_id);
         $userId = Auth::id();
+
         $reviewedReservationsIds = Review::pluck('reservation_id')->all();
+        $hasErrors = Session::has('errors') && Session::get('errors')->any();
+        $limit = $hasErrors ? 1 : 2;
+
         $reservations = Reservation::where('user_id', auth()->id())
             ->orderBy('date', 'asc')
             ->orderBy('time', 'asc')
             ->whereNotIn('id', $reviewedReservationsIds)
-            ->limit(2)
+            ->limit($limit)
             ->get();
 
         $area = $shop->area;
