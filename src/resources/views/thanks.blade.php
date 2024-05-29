@@ -6,7 +6,9 @@
 
 @section('content')
 <div class="content">
-    <p>会員登録ありがとうございます</p>
+    <div class="content_head">
+        <p>会員登録ありがとうございます</p>
+    </div>
     <div class="content_btn">
         <a href="/login">ログインする</a>
     </div>

@@ -7,8 +7,7 @@ main {
 .reserve_content {
     width: 40%;
     height: auto;
-    padding: 13vw 5vw;
-    display: flex;
+    padding: 13vw 3vw;
     flex-direction: column;
 }
 
@@ -19,25 +18,38 @@ main {
     font-size: 1.8vw;
 }
 
+.content_center {
+    width: 100%;
+    height: auto;
+    margin-top: 6%;
+}
+
 .content_box {
-    margin-top: 3vw;
-    width: 32vw;
-    height: 16vw;
+    height: 18vw;
     background-color: rgb(65, 65, 255);
     border-radius: 0.3vw;
     box-shadow: 0.1vw 0.1vw 0.3vw gray;
+    margin-bottom: 5%;
 }
 
 .box_nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
+    height: 35%;
     padding: 5%;
 }
 
 .box_nav-head {
     display: flex;
     width: 100%;
+}
+
+.time_icon , .reserve_number , .review_btn a button, .cancel_btn form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .reserve_number {
@@ -132,17 +144,26 @@ table td {
 
 .img_section {
     width: 100%;
-    height: auto;
+    height: 50%;
 }
 
 .img_section img {
     width: 100%;
-    height: 10vw;border-radius: 0.3vw 0.3vw 0 0;
+    height: 100%;
+    border-radius: 0.3vw 0.3vw 0 0;
 }
 
 .shop_section {
     width: 100%;
+    height: 50%;
     padding: 5%;
+}
+
+.shop_section_header {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
 }
 
 .shop_section_header h2 {
@@ -150,6 +171,7 @@ table td {
 }
 
 .tag {
+    height: 20%;
     display: flex;
     font-size: 0.8vw;
 }
@@ -157,26 +179,39 @@ table td {
 .section_footer {
     display: flex;
     width: 100%;
+    height: 50%;
     justify-content: space-between;
-    padding-top: 5%;
 }
 
 .footer_btn button , .favorite_btn button{
     border: none;
 }
 
-
-.footer_btn {
-    width: 6vw;
-    padding:  0.5vw 1vw;
-    background-color: rgb(65, 65, 255);
-    border-radius: 0.3vw;
+.footer_btn form , .favorite_btn form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
+
+.favorite_btn form {
+    display: flex;
+    justify-content: end;
+}
+
+
+.footer_btn , .favorite_btn {
+    width: 50%;
+}
+
 
 .footer_btn button {
     background-color: rgb(65, 65, 255);
+    width: 70%;
+    height: 60%;
     color: white;
     font-size: 1vw;
+    border-radius: 0.3vw;
 }
 
 .favorite_btn button {
@@ -211,4 +246,23 @@ table td {
     border-radius: 0.3vw;
     color: white;
     font-size: 1vw;
+}
+
+@media (max-width: 768px) {
+    .reserve_content {
+        width: 50%;
+        padding: 13vh 5vw;
+        position: absolute;
+        top: 1vh;
+    }
+
+    .favorite_shops {
+        width: 50%;
+        left: 50%;
+        padding: 8vh 5vw;
+        top: 3vh;
+    }
+    .shop {
+        flex-direction: column;
+    }
 }

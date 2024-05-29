@@ -74,7 +74,7 @@ body {
 }
 
 #batu {
-    left: -5vw;
+    left: -100vw;
     top: 5vh;
     z-index: 10;
 }
@@ -141,3 +141,33 @@ header.input {
     border: none;
 }
 
+@media (max-width: 768px) {
+    #rese {
+        padding: 1.5vw 1.8vw;
+    }
+
+    #batu {
+        padding: 0.8vw 2.1vw;
+        font-size: 4vw;
+    }
+
+    #rese img {
+        width: 4vw;
+        height: 4.5vw;
+    }
+
+    #text {
+        font-size: 4vw;
+        width: 20vw;
+        line-height: 3.5vw;
+    }
+
+    .sidebar {
+        font-size: 4.3vw;
+    }
+
+    .content {
+        width: 60vw;
+        height: 40vw;
+    }
+}

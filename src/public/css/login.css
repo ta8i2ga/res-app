@@ -63,3 +63,72 @@ main {
     text-align: center;
     font-size: 1.7vw;
 }
+
+@media (max-width: 768px){
+    .main_header
+    {
+        font-size: 2vw;
+        height: 10vw;
+    }
+
+    .main_content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30vw;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .email {
+        width: 100%;
+        margin-bottom: 5%;
+    }
+
+    .password {
+        margin-bottom: 5%;
+    }
+
+    .email_text , .password_text{
+        padding-left: 5%;
+        width: 100%;
+    }
+
+    .email_text input , .password_text input{
+        width: 100%;
+        height: 90%;
+        font-size: 3vw;
+    }
+    .password_text {
+        padding-left: 2%;
+    }
+
+    .email_img {
+        width: 4.5vw;
+        height: 5vw;
+        margin-left: 9%;
+    }
+
+    .password_img {
+        width: 6vw;
+        height: 4vw;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: end;
+    }
+
+    .btn button {
+        width: 8vw;
+        height: 4.5vw;
+        font-size: 2vw;
+    }
+
+    .error_messages li {
+        font-size: 2.7vw;
+    }
+
+}

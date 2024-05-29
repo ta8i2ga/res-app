@@ -31,7 +31,7 @@
     <div class="search_shop">
         <form action="/shop-search" method="get">
             <label for="shop_name">
-                <img width=" 18" height="18" src="https://img.icons8.com/material/24/000000/search--v3.png" alt="search--v3" />
+                <img src="https://img.icons8.com/material/24/000000/search--v3.png" alt="search--v3" />
                 <input type="search" name="keyword" id="shop_name" placeholder="Search ...">
             </label>
         </form>

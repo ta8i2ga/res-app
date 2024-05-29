@@ -79,3 +79,40 @@
     border-radius: 0.3vw;
     margin-right: 5%;
 }
+
+@media (max-width:768px) {
+    .review_form {
+        padding-top: 12vh;
+    }
+    .review_form h2 {
+        font-size: 3vw;
+    }
+
+    .review_form_main {
+        width: 50vw;
+        height: 40vw;
+        border-radius: 1.3vw;
+    }
+
+    .content_title {
+        border-radius: 1.3vw 1.3vw 0 0;
+        padding: 2.5% 0;
+    }
+
+    .content_title h3 {
+        font-size: 3.5vw;
+    }
+
+    .form_content {
+        font-size: 2.4vw;
+    }
+
+    .comment textarea {
+        font-size: 2.4vw;
+    }
+
+    .submit_btn button {
+        font-size: 2vw;
+        border-radius: 1.3vw;
+    }
+}

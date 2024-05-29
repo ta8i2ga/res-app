@@ -10,7 +10,8 @@
         <div class="back_btn">
             <a href="/">
                 <strong>
-                    < </strong></a>
+                    < </strong>
+            </a>
         </div>
         <div class="shop_name">
             <h2>{{ $shop->shop_name }}</h2>
