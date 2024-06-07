@@ -42,7 +42,7 @@
     @foreach($shops as $shop)
     <div class="section">
         <div class="img_section">
-            <img class="shop_img" src="{{ $shop->img_url }}" alt="店舗画像">
+            <img class="shop_img" src="{{ asset($shop->img_path) }}" alt="店舗画像">
         </div>
         <div class="shop_section">
             <div class="shop_section_header">

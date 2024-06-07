@@ -20,6 +20,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [AuthController::class, 'index']);
     Route::post('/favorites/add', [AuthController::class, 'addFavorites'])->name('favorites.add');
     Route::get('/mypage', [AuthController::class, 'getMyPage'])->name('mypage');
+    //追加実装権限追加
+    Route::get('/admin', [AuthController::class, 'admin'])->name('admin');
+    Route::post('/admin/create', [AuthController::class, 'ownerCreate'])->name('admin.createOwner');
+    Route::get('/shopOwner', [AuthController::class, 'shop_owner'])->name('shop_owner.dashboard');
+    Route::post('/shops/create', [AuthController::class, 'shopStore'])->name('shops.store');
+    Route::get('/shops/{id}/edit', [AuthController::class, 'shopEdit'])->name('shops.edit');
+    Route::put('/shops/{id}', [AuthController::class, 'shopUpdate'])->name('shops.update');
+
+    //ここまで
 
     // ShopController routes
     Route::get('/area-search', [ShopController::class, 'areaSearch'])->name('area.search');

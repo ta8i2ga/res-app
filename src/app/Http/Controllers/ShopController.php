@@ -70,19 +70,21 @@ class ShopController extends Controller
     public function showShopDetail(Request $request)
     {
         $shop_id = $request->input('shop_id');
-        $shopId = $request->query('shop_id');
-
         $shop = Shop::find($shop_id);
+
+        // ログインしているユーザーのID
         $userId = Auth::id();
 
         $reviewedReservationsIds = Review::pluck('reservation_id')->all();
         $hasErrors = Session::has('errors') && Session::get('errors')->any();
         $limit = $hasErrors ? 1 : 2;
 
-        $reservations = Reservation::where('user_id', auth()->id())
+        // その店舗に関連する予約情報のみを取得
+        $reservations = Reservation::where('user_id', $userId)
+            ->where('shop_id', $shop_id) // この行を追加
             ->orderBy('date', 'asc')
             ->orderBy('time', 'asc')
-            ->whereNotIn('id', $reviewedReservationsIds)
+            ->whereNotIn('id', Review::pluck('reservation_id')->all())
             ->limit($limit)
             ->get();
 

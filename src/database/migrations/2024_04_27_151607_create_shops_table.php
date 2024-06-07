@@ -18,8 +18,9 @@ class CreateShopsTable extends Migration
             $table->string('shop_name');
             $table->string('description', 255);
             $table->unsignedBigInteger('area_id');
-            $table->unsignedBigInteger('genre_id');
-            $table->string('img_url', 255);
+            $table->unsignedBigInteger('genre_id');$table->unsignedBigInteger('user_id');
+            $table->string('img_path', 255)->nullable();
+            $table->timestamps();
         });
     }
 

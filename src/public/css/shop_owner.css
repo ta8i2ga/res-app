@@ -1,0 +1,257 @@
+.sidebar ul li:first-child , .sidebar ul li:last-child{
+    display: none;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.left_content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form_content {
+    width: 40vw;
+    height: 35vw;
+    margin-top: 12vw;
+    background-color: white;
+    border-radius: 1vw;
+    box-shadow: 0.3vw 0.3vw 0.5vw gray;
+}
+
+.form_content-header {
+    background-color: rgb(65, 65, 255);
+    color: white;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    border-radius: 1vw 1vw 0 0;
+}
+
+.form_content-header h2 {
+    font-size: 2vw;
+    margin-left: 2vw;
+}
+
+.form_content-main {
+    height: 85%;
+    padding: 5% 5%;
+}
+
+.form-name , .form-description , .form-img , .form-tag{
+    font-size: 1.2vw;
+}
+
+.form-name , .form-description ,
+.form-area,
+.form-genre, .form-img{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-description , .form-area , .form-genre , .form-img {
+    margin-top: 3%;
+}
+
+.form-name input , .form-description textarea {
+    width: 80%;
+    font-size: 2vw;
+}
+
+#area , #genre{
+    width: 30%;
+    font-size: 1vw;
+}
+
+.form-img input {
+    font-size: 1vw;
+    width: 42%;
+}
+
+.form-btn {
+    display: flex;
+    justify-content: end;
+    height: auto;
+    width: 100%;
+    margin-top: 15%;
+}
+
+.form-btn button {
+    background-color: rgb(65, 65, 255);
+    border: none;
+    color: white;
+    font-size: 1vw;
+    width: 15%;
+    height: 2.2vw;
+    border-radius: 0.6vw;
+}
+
+.error_messages , .alert-success{
+    display: flex;
+    justify-content: center;
+    font-size: 1.2vw;
+}
+
+.right_content {
+    width: 50%;
+    height: auto;
+    padding: 5% 3%;
+}
+
+.right_content-header {
+    width: 100%;
+    font-size: 1.7vw;
+}
+
+.reserve {
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reserve_content {
+    width: 45%;
+    background-color: rgb(65, 65, 255);
+    margin-right: 5%;
+    margin-bottom: 5%;
+    border-radius: 0.5vw;
+    padding: 1%;
+    box-shadow: 0.3vw 0.3vw 0.5vw gray;
+}
+
+.reserve_content-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reserve_content-header h2 {
+    font-size: 2vw;
+    color: white;
+}
+
+.exit_btn {
+    margin-right: 3%;
+}
+
+.exit_btn button {
+    background-color: rgb(65, 65, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4vw;
+    height: 2vw;
+    border: none;
+    border: 0.1vw solid white;
+    border-radius: 0.5vw;
+}
+
+.exit_btn button a {
+    color: white;
+    font-size: 1vw;
+}
+
+.reserve_nav {
+    border-radius: 0.5vw;
+    margin-bottom: 2%;
+    border: 0.1vw solid white;
+}
+
+.reserve_text {
+    color: white;
+    text-align: end;
+    font-size: 1.5vw;
+    margin-right: 3%;
+}
+
+.reserve_nav table {
+    color: white;
+    width: 100%;
+    font-size: 1vw;
+}
+
+.reserve_nav table th {
+    text-align: start;
+    padding-left: 5%;
+}
+
+@media (max-width:768px) {
+    .reserve_content {
+        width: 100%;
+        margin-right: 0;
+    }
+    .left_content {
+        margin-top: 5%;
+    }
+    .form-img input {
+        width: 45%;
+    }
+    .container {
+        display: block;
+    }
+    .left_content {
+        width: 100%;
+    }
+    .form-name,
+    .form-description,
+    .form-img,
+    .form-tag {
+        font-size: 2.2vw;
+    }
+    .form_content {
+        width: 65vw;
+        height: 55vw;
+        margin-top: 12vw;
+        background-color: white;
+        border-radius: 1vw;
+    }
+    #area,
+    #genre {
+        width: 30%;
+        font-size: 2vw;
+    }
+    .form-img input {
+        width: 57%;
+    }
+
+    .form-img input {
+        font-size: 2vw;
+    }
+
+    .form-btn button {
+        font-size: 2vw;
+        width: 20%;
+        height: 4.2vw;
+    }
+
+    .right_content {
+        width: 100%;
+        padding: 5% 17%;
+    }
+
+    .reserve_content-header h2 {
+        font-size: 3vw;
+    }
+    .exit_btn button {
+        width: 7vw;
+        height: 4vw;
+    }
+    .exit_btn button a {
+        font-size: 2vw;
+    }
+
+    .reserve_text {
+        font-size: 2.5vw;
+    }
+    .reserve_nav table {
+        font-size: 3vw;
+    }
+
+}

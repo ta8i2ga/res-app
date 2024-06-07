@@ -14,7 +14,7 @@ main {
     display: flex;
     background-color: white;
     margin-left: 50%;
-    margin-top: 5vh;
+    margin-top: 5vw;
     align-items: center;
     border-radius: 3px;
     box-shadow: 2px 2px 5px gray;
@@ -206,7 +206,7 @@ select {
         width: 64vw;
         height: 7vw;
         margin-left: 26.5%;
-        margin-top: 5vh;
+        margin-top: 5vw;
     }
 
     .search_shop {

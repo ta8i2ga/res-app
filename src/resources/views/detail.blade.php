@@ -19,7 +19,7 @@
     </div>
 
     <div class="shop_img">
-        <img src="{{ $shop->img_url }}" alt="店舗写真">
+        <img src="{{ asset($shop->img_path) }}" alt="店舗写真">
     </div>
     <div class="tag">
         <div class="tag_area">
@@ -103,11 +103,11 @@
                 </table>
                 @endforeach
             </div>
+            @endif
+            <div class="reserve_btn">
+                <button type="submit">予約する</button>
+            </div>
+        </form>
     </div>
-    @endif
-    <div class="reserve_btn">
-        <button type="submit">予約する</button>
-    </div>
-
-    </form>
-    @endsection
+</div>
+@endsection

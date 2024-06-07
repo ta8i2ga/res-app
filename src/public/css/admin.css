@@ -1,0 +1,178 @@
+.sidebar ul li:first-child,
+.sidebar ul li:last-child {
+    display: none;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    padding-top: 20vh;
+}
+
+.username_img {
+    margin: 0;
+    width: 3vw;
+    height: 2vw;
+}
+
+.username_content {
+    margin-left: 0.1vw;
+}
+
+.username_text {
+    padding-left: 4%;
+}
+
+.email_img {
+    width: 2.5vw;
+    height: 2vw;
+}
+
+.email {
+    margin-top: 1vw;
+}
+
+.email_content {
+    margin-left: 0.3vw;
+}
+
+.password_img {
+    margin: 0;
+    width: 3vw;
+    height: 2vw;
+}
+
+.main_content {
+    padding: 9% 10%;
+}
+
+.email_text {
+    padding-left: 5%;
+}
+
+.password {
+    margin-top: 1vw;
+}
+
+.password_text {
+    padding-left: 4%;
+}
+
+.main_content input {
+    width: 20vw;
+    height: auto;
+    border: none;
+    border-bottom: 0.1vw solid black;
+    font-size: 1.1vw;
+    line-height: 2vw;
+}
+
+.btn button {
+    background-color: rgb(65, 65, 255);
+    width: 4vw;
+    height: 2.5vw;
+    color: white;
+    font-size: 1vw;
+    margin-left: 20vw;
+    margin-top: 2vw;
+    border-radius: 3px;
+    border: none;
+}
+
+.error_messages li {
+    width: 100%;
+    margin: auto 0;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    font-size: 1.7vw;
+}
+
+@media (max-width: 768px) {
+    .content {
+        width: 60vw;
+        height: 43vw;
+    }
+
+    .main_header {
+        font-size: 2vw;
+        height: 24%;
+    }
+
+    .main_content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80%;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .email {
+        width: 100%;
+        margin-bottom: 2%;
+    }
+
+    .password {
+        margin-bottom: 5%;
+    }
+    .username,
+    .email,
+    .password {
+        display: flex;
+        height: 5vw;
+    }
+
+    .email_text,
+    .password_text,
+    .username_text {
+        padding-left: 5%;
+        width: 100%;
+    }
+
+    .email_text input,
+    .password_text input,
+    .username_text input {
+        width: 100%;
+        height: 90%;
+        font-size: 3vw;
+    }
+
+    .password_text {
+        padding-left: 2%;
+    }
+
+    .username_img {
+        margin: 0;
+        width: 5vw;
+        height: 4vw;
+    }
+
+    .email_img {
+        width: 4.5vw;
+        height: 5vw;
+        margin-left: 9%;
+    }
+
+    .password_img {
+        width: 6vw;
+        height: 4vw;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: end;
+    }
+
+    .btn button {
+        width: 8vw;
+        height: 4.5vw;
+        font-size: 2vw;
+    }
+
+    .error_messages li {
+        font-size: 2.7vw;
+    }
+}

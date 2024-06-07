@@ -39,6 +39,9 @@
                     <input type="text" name="password" placeholder="Password">
                 </div>
             </div>
+            <div class="role_id">
+                <input type="hidden" name="role_id" value="3" >
+            </div>
             <div class="btn">
                 <button type="submit">登録</button>
             </div>
