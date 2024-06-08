@@ -108,7 +108,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
             'role_id' => 2,
         ]);
-        return redirect()->route('admin')->with('success', '店舗代表者が作成されました');
+        return redirect()->route('admin.dashboard')->with('success', '店舗代表者が作成されました');
     }
 
     public function shopStore(Request $request)
@@ -126,7 +126,7 @@ class AuthController extends Controller
         $shop->description = $validatedData['description'];
         $shop->area_id = $validatedData['area_id'];
         $shop->genre_id = $validatedData['genre_id'];
-        $shop->user_id = Auth::id(); // 現在ログインしているユーザーのID
+        $shop->user_id = Auth::id();
         $shop->save();
 
         // 保存した店舗のIDを取得
@@ -135,16 +135,28 @@ class AuthController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $extension = $request->file('image')->getClientOriginalExtension();
-            $imageName = $shopId . '.' . $extension;
-            $image->move(public_path('storage/shop_images'), $imageName);
+
+            // shop_images/shop_id フォルダを作成
+            $directory = public_path('storage/shop_images/' . $shopId);
+            if (!file_exists($directory)) {
+                mkdir($directory, 0777, true);
+            }
+
+            // フォルダ内の既存ファイル数をカウントして次のファイル名を決定
+            $files = glob($directory . '/*');
+            $imageName = (count($files) + 1) . '.' . $extension;
+
+            // 画像を保存
+            $image->move($directory, $imageName);
 
             // 画像のパスを更新
-            $shop->img_path = 'storage/shop_images/' . $shopId . '.' . $extension; // 画像パスを店舗IDに設定
+            $shop->img_path = 'storage/shop_images/' . $shopId . '/' . $imageName; // 画像パスを店舗IDフォルダに設定
             $shop->save();
         }
 
         return redirect()->route('shop_owner.dashboard')->with('success', '店舗が追加されました');
     }
+
 
     public function shopEdit($id)
     {
@@ -165,25 +177,40 @@ class AuthController extends Controller
 
         $shopId = $shop->id;
 
+        //追加実装：ストレージに保存
         if ($request->hasFile('image')) {
-            // 以前の画像を削除
-            if ($shop->img_path) {
-                Storage::delete(str_replace('storage/', 'public/', $shop->img_path));
+            $image = $request->file('image');
+            $extension = $image->getClientOriginalExtension();
+
+            // shop_images/shop_id フォルダのパス
+            $directory = public_path('storage/shop_images/' . $shopId);
+            if (!file_exists($directory)) {
+                mkdir($directory, 0777, true);
             }
 
-            $extension = $request->file('image')->getClientOriginalExtension();
+            // フォルダ内の既存ファイルを取得
+            $files = glob($directory . '/*');
 
-            // 新しいファイル名を生成 (shop_id)
-            $newFileName = $shopId . '.' . $extension;
+            // 20枚を超える場合は最も古いファイルを削除
+            if (count($files) >= 20) {
+                usort($files, function ($a, $b) {
+                    return filemtime($a) - filemtime($b);
+                });
+                unlink($files[0]); // 最も古いファイルを削除
+            }
 
-            $path = $request->file('image')->storeAs('public/shop_images', $newFileName);
-            $shop->img_path = str_replace('public/', 'storage/', $path);
-            $shop->save(); // 画像パスを更新して再度保存
+            // 次のファイル名を決定
+            $imageName = (count($files) + 1) . '.' . $extension;
+
+            // 新しい画像を保存
+            $image->move($directory, $imageName);
+
         }
 
         $shop->save();
 
         return redirect()->route('shops.edit', ['id' => $shop->id])->with('success', '店舗情報が更新されました。');
     }
+
 
 }

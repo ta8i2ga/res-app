@@ -79,7 +79,7 @@ main {
     border: none;
 }
 
-.error_messages li {
+.error_messages li , .alert-success{
     width: 100%;
     margin: auto 0;
     list-style: none;
@@ -172,7 +172,7 @@ main {
         font-size: 2vw;
     }
 
-    .error_messages li {
+    .error_messages li , .alert-success{
         font-size: 2.7vw;
     }
 }

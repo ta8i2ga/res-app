@@ -20,8 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [AuthController::class, 'index']);
     Route::post('/favorites/add', [AuthController::class, 'addFavorites'])->name('favorites.add');
     Route::get('/mypage', [AuthController::class, 'getMyPage'])->name('mypage');
-    //追加実装権限追加
-    Route::get('/admin', [AuthController::class, 'admin'])->name('admin');
+    //追加実装管理画面、ストレージに保存追加
+    Route::get('/admin', [AuthController::class, 'admin'])->name('admin.dashboard');
     Route::post('/admin/create', [AuthController::class, 'ownerCreate'])->name('admin.createOwner');
     Route::get('/shopOwner', [AuthController::class, 'shop_owner'])->name('shop_owner.dashboard');
     Route::post('/shops/create', [AuthController::class, 'shopStore'])->name('shops.store');
