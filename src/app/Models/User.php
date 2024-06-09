@@ -8,8 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -53,13 +51,17 @@ class User extends Authenticatable
         return $this->hasMany(Reservation::class);
     }
 
-    public function roles(): BelongsToMany
+    public function role()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsTo(Role::class);
     }
 
-    public function hasRole($role)
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
+
+    public function shops()
     {
-        return $this->roles()->where('name', $role)->exists();
+        return $this->hasMany(Shop::class);
     }
 }

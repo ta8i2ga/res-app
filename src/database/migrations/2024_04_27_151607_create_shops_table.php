@@ -15,10 +15,11 @@ class CreateShopsTable extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('area_id');
+            $table->unsignedBigInteger('genre_id');
             $table->string('shop_name');
             $table->string('description', 255);
-            $table->unsignedBigInteger('area_id');
-            $table->unsignedBigInteger('genre_id');$table->unsignedBigInteger('user_id');
             $table->string('img_path', 255)->nullable();
             $table->timestamps();
         });

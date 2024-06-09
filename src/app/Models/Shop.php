@@ -24,4 +24,12 @@ class Shop extends Model
     public function genre(){
         return $this->belongsTo(Genre::class);
     }
+
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
