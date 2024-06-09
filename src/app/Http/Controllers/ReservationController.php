@@ -30,8 +30,6 @@ class ReservationController extends Controller
         }
     }
 
-    //追加実装予約編集
-
     public function cancelReservation($id)
     {
         $reservation = Reservation::findOrFail($id);
@@ -41,6 +39,7 @@ class ReservationController extends Controller
         return redirect('mypage');
     }
 
+    //追加実装予約編集
     public function edit($id)
     {
         $reservation = Reservation::findOrFail($id);

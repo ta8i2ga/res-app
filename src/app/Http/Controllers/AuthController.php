@@ -10,7 +10,6 @@ use App\Models\Genre;
 use App\Models\User;
 use App\Models\Reservation;
 use App\Models\Review;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
