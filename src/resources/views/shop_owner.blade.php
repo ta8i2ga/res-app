@@ -88,6 +88,10 @@
                     @endif
                 </div>
                 @foreach ($shop->reservations as $reservation)
+                @php
+                $reservationDateTime = \Carbon\Carbon::parse($reservation->date . ' ' . $reservation->time);
+                @endphp
+                @if ($reservationDateTime->isFuture())
                 <div class="reserve_nav">
                     <table>
                         <tr>
@@ -116,6 +120,7 @@
                         </tr>
                     </table>
                 </div>
+                @endif
                 @endforeach
             </div>
             @endforeach
